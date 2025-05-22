@@ -1,3 +1,4 @@
+
 # zabbix-nakivo
 Zabbix Template to check Nakivo Backup &amp; Replication with external script
 - Discovery rule for all jobs
@@ -6,24 +7,20 @@ Zabbix Template to check Nakivo Backup &amp; Replication with external script
 - Trigger severity average on last result not "Successful"
 - Trigger severity information on running jobs
 
-Tested on Zabbix 6.2.4 with debian 11.
+Tested on Zabbix 7.2.7 with Ubuntu 24.04.02
 
 ## Requirement
 **JAVA that is comptible with Nakivo cli.jar file**
 Tested with java -version: 
 ```
-openjdk version "1.8.0_292"
-OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)
-OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode)
+openjdk version "1.8.0_452"
+OpenJDK Runtime Environment (build 1.8.0_452-8u452-ga~us1-0ubuntu1~24.04-b09)
+OpenJDK 64-Bit Server VM (build 25.452-b09, mixed mode)
 ```
 
-Installed with the following on Debian 11:
+Installed with the following on Ubuntu 24.04.02:
 ```
-apt install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common -y
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-apt install adoptopenjdk-8-hotspot -y
+apt install openjdk-8-jdk
 ```
 
 ## Installation
@@ -34,9 +31,9 @@ apt install adoptopenjdk-8-hotspot -y
 5. increase script timeout on server/proxy to 10 seconds
 
 ## Testing
-Run nakivo.sh on the zabbix server or proxy with 4 paramters: nakivo server ip, nakivo user, nakivo password, nakivo port
+Run nakivo.sh on the zabbix server or proxy with 5 parameters: nakivo server ip, nakivo user, nakivo password, argument [job or repository], nakivo port
 ```
-/usr/lib/zabbix/externalscripts/nakivo.sh <IP> <user> '<password>'
+/usr/lib/zabbix/externalscripts/nakivo.sh <IP> <user> '<password>' job 4443
 ID,Name,State,Last run
 69,copy to nas01,Running. 67.0%,Successful
 33,Backup,Scheduled,Successful
@@ -53,4 +50,4 @@ ID,Name,State,Last run
 
 
 ## Notice
-Tested with nakivo 10.7.2
+Tested with nakivo 11.0.3
