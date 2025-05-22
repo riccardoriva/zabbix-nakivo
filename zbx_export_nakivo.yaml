@@ -11,8 +11,8 @@ zabbix_export:
   templates:
     -
       uuid: 875a3fb6c65641dcab7c2ee0f7d6dee8
-      template: 'Template Nakivo'
-      name: 'Template Nakivo'
+      template: 'Template Nakivo by external script'
+      name: 'Template Nakivo by external script'
       groups:
         -
           name: Templates
