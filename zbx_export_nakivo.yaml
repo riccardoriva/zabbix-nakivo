@@ -98,7 +98,7 @@ zabbix_export:
                   uuid: d31cd0a4e2b846978368310c60a92f8a
                   expression: 'last(/Template Nakivo/nakivo.jobs.lastrun[{#ID}])<>"Successful"'
                   name: 'Job [{#NAME}] not successful'
-                  priority: AVERAGE
+                  priority: HIGH
             -
               uuid: f3cc9de1237e41b4ac937cf6d90f4cfa
               name: 'Job [{#NAME}]: Name'
@@ -237,7 +237,7 @@ zabbix_export:
                   uuid: ef00cbac2fbc42b48546de321a48361d
                   expression: 'last(/Template Nakivo/nakivo.repository.state[{#ID}])<>"OK"'
                   name: 'Repository [{#NAME}] State {ITEM.LASTVALUE}'
-                  priority: AVERAGE
+                  priority: HIGH
             -
               uuid: fc11e60b3e444cdd8f9dd2f27fefdf24
               name: 'Repository [{#NAME}]: Status'
